@@ -1,0 +1,526 @@
+<!DOCTYPE html><html lang="ar" dir="rtl" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>مدرسة زخر للتعليم الأساسي - التحسين المدرسي 2025/2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(145deg, #f4f7fc 0%, #eef2f7 100%);
+            color: #1a2c3e;
+            line-height: 1.6;
+        }
+
+        /* الحاوية الرئيسية */
+        .site-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+
+        /* الهيدر على طراز الصورة */
+        .hero-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .hero-header h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #0a2b3e, #1e5f7a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-header .sub {
+            font-size: 1.2rem;
+            color: #c5a059;
+            border-top: 2px solid #e0c87c;
+            display: inline-block;
+            padding-top: 0.6rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* بطاقات المدير والمدرسة - تصميم مزدوج */
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-card {
+            flex: 1;
+            min-width: 280px;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: #0a2b3e;
+            padding: 1rem 1.8rem;
+            color: #d4af37;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .card-header i {
+            font-size: 1.8rem;
+        }
+
+        .card-body {
+            padding: 1.8rem;
+        }
+
+        .detail-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            background: #f9fafc;
+            padding: 0.6rem 1rem;
+            border-radius: 60px;
+            align-items: center;
+        }
+
+        .detail-row i {
+            width: 28px;
+            color: #d4af37;
+            font-size: 1.1rem;
+        }
+
+        .detail-row strong {
+            font-weight: 700;
+            color: #1e4663;
+        }
+
+        .report-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(95deg, #d4af37, #f3e5ab);
+            color: #0a2b3e;
+            padding: 12px 28px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 800;
+            margin-top: 1.2rem;
+            transition: 0.2s;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .report-btn i {
+            font-size: 1.3rem;
+        }
+
+        .report-btn:hover {
+            background: #c5a059;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        /* قائمة التبويبات - بنفس النمط الحديث */
+        .tabs-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin: 2rem 0 2rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.8rem;
+        }
+
+        .tab-btn {
+            background: #f1f5f9;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            font-family: 'Tajawal', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #2c3e66;
+        }
+
+        .tab-btn i {
+            font-size: 1.1rem;
+        }
+
+        .tab-btn.active {
+            background: #0a2b3e;
+            color: #d4af37;
+            box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            animation: fade 0.3s ease;
+        }
+
+        .tab-content.active-content {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .quick-summary {
+            background: #fef9e6;
+            border-right: 6px solid #d4af37;
+            padding: 1rem 1.8rem;
+            border-radius: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .domain-link-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #0f2b4c;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            gap: 12px;
+            margin: 10px 10px 0 0;
+            transition: 0.2s;
+            font-weight: 500;
+        }
+
+        .domain-link-btn:hover {
+            background: #d4af37;
+            color: #0a2b3e;
+        }
+
+        h4 {
+            font-size: 1.7rem;
+            margin: 1rem 0 0.8rem;
+            color: #0a2b3e;
+            font-weight: 800;
+        }
+
+        .grid-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+            margin: 1.2rem 0;
+        }
+
+        .grid-list li {
+            background: #f8fafc;
+            padding: 8px 18px;
+            border-radius: 50px;
+            list-style: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: right;
+        }
+
+        th {
+            background: #0a2b3e;
+            color: white;
+        }
+
+        .gallery-section {
+            margin-top: 2rem;
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .upload-area {
+            border: 2px dashed #d4af37;
+            background: #fffcf0;
+            padding: 2rem;
+            border-radius: 1.8rem;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.8rem;
+        }
+
+        .gallery-item {
+            height: 170px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.8rem;
+            margin-top: 3rem;
+            background: #0a2b3e;
+            color: #d4af37;
+            border-radius: 2rem 2rem 0 0;
+        }
+
+        #scrollTop {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: #d4af37;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 40px;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+
+        @media (max-width: 780px) {
+            .site-wrapper {
+                padding: 1rem;
+            }
+            .hero-header h1 {
+                font-size: 1.8rem;
+            }
+            .tab-btn {
+                padding: 6px 16px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+<style id="htmlpub-breakpoint-visibility">@media (max-width: 390px) { .hp-hide-mobile { display: none !important; } }
+@media (min-width: 391px) and (max-width: 768px) { .hp-hide-tablet { display: none !important; } }
+@media (min-width: 769px) { .hp-hide-desktop { display: none !important; } }</style><style>#htmlpub-link-input::placeholder{color:rgba(0,0,0,0.40);}ul,ol{padding:20px;}</style></head>
+<body>
+<div class="site-wrapper" style="">
+    <!-- رأس يشبه النمط المطلوب -->
+    <div class="hero-header" style="">
+        <h1>مدرسة زخر للتعليم الأساسي (١–١٢)</h1>
+        <div class="sub">نحو التميز في التحسين المدرسي | العام الدراسي 2025/2026</div>
+    </div>
+
+    <!-- بطاقتي المدير والمدرسة -->
+    <div class="info-grid" style="">
+        <!-- بطاقة المدير -->
+        <div class="info-card" style="">
+            <div class="card-header" style="">
+                <i class="fas fa-user-graduate"></i> 
+                <span style="">المدير: محمد حسن القرش</span>
+            </div>
+            <div class="card-body" style="">
+                <div class="detail-row" style=""><i class="fas fa-id-badge"></i> <strong style="">الصفة:</strong> مدير مدرسة (منتدب)</div>
+                <div class="detail-row" style=""><i class="fas fa-folder-open" style=""></i> <strong style="">رقم الملف:</strong> 16170722</div>
+                <div class="detail-row" style=""><i class="fas fa-calendar-alt"></i> <strong style="">تاريخ التعيين:</strong> 10 سبتمبر 2014</div>
+                <div class="detail-row" style=""><i class="fas fa-chart-line"></i> <strong style="">القيادة:</strong> إدارة التطوير المهني وتحقيق مؤشرات الخطة المدرسية 2025-2026</div>
+                <div class="detail-row" style=""><i class="fas fa-medal"></i> <strong style="">تقرير إنجازات المدير 2025/2026</strong> — قيادة ملهمة لتحقيق التحول المدرسي</div>
+                <a href="https://moeom-my.sharepoint.com/:b:/g/personal/sc8909_moe_om/IQDeTzKxcsVpRpIJWUi7mpHIAWuLnFJI7CHbCYb28xvBfhc?e=qphMOJ" target="_blank" class="report-btn">
+                    <i class="fas fa-file-pdf"></i> تحميل تقرير الإنجاز الكامل
+                </a>
+            </div>
+        </div>
+
+        <!-- بطاقة المدرسة -->
+        <div class="info-card">
+            <div class="card-header">
+                <i class="fas fa-school"></i>
+                <span>مدرسة زخر للتعليم الأساسي</span>
+            </div>
+            <div class="card-body" style="">
+                <div class="detail-row" style=""><i class="fas fa-code-branch"></i> <strong>رمز المدرسة:</strong> 8909</div>
+                <div class="detail-row" style=""><i class="fas fa-calendar-plus"></i> <strong>الافتتاح:</strong> 1983م</div>
+                <div class="detail-row" style=""><i class="fas fa-users"></i> <strong>النوع:</strong> تعليم أساسي (١–١٢) مشترك | فترة الدوام: صباحي</div>
+                <div class="detail-row" style=""><i class="fas fa-map-marker-alt"></i> <strong>المحافظة:</strong> محافظة ظفار | الولاية: شليم وجزر الحلانيات</div>
+                <div class="detail-row" style=""><i class="fas fa-road"></i> <strong>القرية:</strong> زخر — المسافة عن مركز الولاية: 20 كم</div>
+                <div class="detail-row" style=""><i class="fas fa-building"></i> <strong style="">بعد المدرسة عن المديرية:</strong> 325 كم</div>
+                <div class="detail-row" style=""><i class="fas fa-chalkboard"></i> <strong style="">عام تطبيق التعليم الأساسي:</strong> 2008</div>
+                <div class="detail-row" style=""><i class="fas fa-eye"></i> <strong>رؤيتنا:</strong> بيئة تعلم محفزة وإبداعية</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- تبويبات المجالات الخمسة (نفس المحتوى المطور مع روابط محدثة) -->
+    <div class="tabs-nav" style="">
+        <button class="tab-btn" data-tab="domain1" style=""><i class="fas fa-chart-simple"></i> 1. الإنجاز الدراسي</button>
+        <button class="tab-btn" data-tab="domain2" style=""><i class="fas fa-seedling"></i> 2. النمو الشخصي</button>
+        <button class="tab-btn" data-tab="domain3" style=""><i class="fas fa-chalkboard-user"></i> 3. التدريس والتقويم</button>
+        <button class="tab-btn" data-tab="domain4" style=""><i class="fas fa-tree"></i> 4. مناخ المدرسة</button>
+        <button class="tab-btn active" data-tab="domain5" style=""><i class="fas fa-flag-checkered"></i> 5. القيادة والحوكمة</button>
+    </div>
+
+    <!-- المحتوى: المجال 1 -->
+    <div id="domain1" class="tab-content" style="">
+        <h4 style=""><i class="fas fa-trophy" style="color:#d4af37;"></i> مجال الإنجاز الدراسي</h4>
+        <div class="quick-summary" style=""><strong>📖 المقدمة:</strong> استجابة للتشخيص الذي أظهر انخفاض نسب الإتقان (من 45.5% عام 2022 إلى 31.5% عام 2024)، تم تنفيذ خطة علاجية ووقائية لرفع التحصيل والتقدم الدراسي.</div>
+        <h5 style="">📌 المهام المنفذة</h5>
+        <ul class="grid-list" style="">
+            <li style="">✅ تحليل نتائج الإتقان للسنوات الثلاث وتحديد الصفوف منخفضة الأداء.</li>
+            <li>✅ اختبارات دورية شهرية وتغذية راجعة فورية عبر منصة نور.</li>
+            <li>✅ دعم فردي وجلسات علاجية لصعوبات التعلم.</li>
+            <li>✅ مسابقات تحفيزية أسبوعية ولوحة شرف.</li>
+            <li style="">✅ تدريب الطلبة على مهارات الدراسة الفعالة والتفكير الناقد.</li>
+            <li>✅ تفعيل المكتبة المدرسية وتحدي القراءة.</li>
+        </ul>
+        <h5 style="">📈 النتائج المحققة</h5>
+        <ul style=""><li style="">🔹 تحسن متوسط نسب الإتقان بنسبة 12% في الصفوف المستهدفة.</li><li style="">🔹 زيادة التزام الطلبة بالواجبات والمشاريع بنسبة 34%.</li><li style="">🔹 تنمية مهارات التعلم الذاتي والرقمي لدى 78% من الطلبة.</li></ul>
+        <a href="https://moeom-my.sharepoint.com/:b:/g/personal/sc8909_moe_om/IQCqwDaGHNmCT4BvARAwk8OLAbIedzq8KxqRO52gkNwvRtg?e=saFI1T" target="_blank" class="domain-link-btn" style=""><i class="fas fa-chart-line"></i> 📈 رابط الإنجاز الدراسي (بيانات)</a>
+    </div>
+
+    <!-- المجال 2: النمو الشخصي -->
+    <div id="domain2" class="tab-content" style="">
+        <h4 style=""><i class="fas fa-heart" style="color:#d4af37;"></i> مجال النمو الشخصي</h4>
+        <div class="quick-summary" style=""><strong>🌟 المقدمة:</strong> تعزيز الهوية الوطنية، القيم الإيجابية، الوعي الصحي، الابتكار وريادة الأعمال من خلال برامج وأنشطة طلابية متنوعة.</div>
+        <h5 style="">✅ المهام المنفذة</h5>
+        <ul class="grid-list" style=""><li style="">فعاليات وطنية (النشيد، السيرة، العلم العماني).</li><li>مجلس طلابي منتخب وحملات تطوعية.</li><li>برنامج توعوي للصحة والغذاء السليم والبيئة.</li><li>معرض "أفكار واعدة" لريادة الأعمال والابتكار.</li><li>أنشطة لتعزيز القيم الإنسانية والمسؤولية.</li></ul>
+        <h5 style="">🏆 النتائج المحققة</h5>
+        <ul style=""><li style="">ارتفاع مؤشر الانتماء الوطني بنسبة 41%، زيادة المشاركة التطوعية بنسبة 200%.</li><li style="">تحسن السلوك والانضباط الذاتي وانخفاض الغياب.</li><li style="">تطوير 15 مشروعاً طلابياً في معرض الابتكار.</li></ul>
+        <div style="">
+            <a href="https://moeom-my.sharepoint.com/:w:/g/personal/sc8909_moe_om/IQDaZdA4hwkUQbrFZI0d0ViaAenZNQWeQW8DH-0PDww3LaQ?e=3Jiwni" target="_blank" class="domain-link-btn" style=""><i class="fas fa-leaf"></i> 🌱 النمو الشخصي (تقرير)</a>
+            <a href="https://moeom-my.sharepoint.com/:b:/g/personal/sc8909_moe_om/IQCXcxdMp-2ZQLYjdJHe0t08ARtjuZzYp2Fp3lHoIbXODvQ?e=Anr9pC" target="_blank" class="domain-link-btn" style=""><i class="fas fa-chart-bar"></i> 📊 النمو الشخصي (بيانات)</a>
+        </div>
+    </div>
+
+    <!-- المجال 3: التدريس والتقويم (الرابط الخاص بهذا المجال فقط) -->
+    <div id="domain3" class="tab-content" style="">
+        <h4 style=""><i class="fas fa-person-chalkboard"></i> مجال التدريس والتقويم</h4>
+        <div class="quick-summary" style=""><strong>✏️ المقدمة:</strong> بناء رؤية مشتركة للمنهج، تدريب المعلمين على استراتيجيات التعلم النشط، دمج التكنولوجيا، ورفع كفاءة التقويم.</div>
+        <h5>⚙️ المهام المنفذة</h5>
+        <ul style=""><li style="">ورش تدريبية حول التخطيط الاستراتيجي وتحليل نواتج التعلم.</li><li style="">تدريب 30 معلماً على استراتيجيات التعليم النشط والإدارة الصفية الإيجابية.</li><li style="">تفعيل منصة نور والمواقع التفاعلية (Kahoot، Padlet).</li><li style="">مشغل التفكير الناقد وحل المشكلات وتنظيم الوقت للطلبة.</li><li style="">حصر الوسائل التعليمية وتطوير غرفة المصادر.</li></ul>
+        <h5 style="">📊 النتائج</h5>
+        <ul style=""><li>تحسن أداء المعلمين في الزيارات الإشرافية بنسبة 28%.</li><li style="">زيادة استخدام التكنولوجيا في الفصول بنسبة 65%.</li><li>ارتفاع مستوى دافعية الطلبة وانخراطهم في الأنشطة الصفية.</li></ul>
+        <a href="https://moeom-my.sharepoint.com/:b:/g/personal/sc8909_moe_om/IQDvN66facWSSpycDr3nl7EDAd6IRJfyKAkDMC8Q1m1N53s?e=5Xjbt4" target="_blank" class="domain-link-btn"><i class="fas fa-chalkboard"></i> 📘 ملف تفصيلي - التدريس والتقويم</a>
+    </div>
+
+    <!-- المجال 4: مناخ المدرسة -->
+    <div id="domain4" class="tab-content" style="">
+        <h4 style=""><i class="fas fa-building-user"></i> مجال مناخ المدرسة وبيئة التعلم</h4>
+        <div class="quick-summary" style=""><strong>🏫 المقدمة:</strong> تحسين البيئة المادية والسلامة، تعزيز الانتماء، وتوفير وجبات صحية ومبنى جاذب.</div>
+        <h5 style="">🛠️ المهام المنفذة</h5>
+        <ul style=""><li style="">استبدال كامل المكيفات (32 وحدة) والأثاث الدراسي (250 طاولة).</li><li style="">استبدال خزانات المياه ومعالجة التسربات الصحية.</li><li>دهان الواجهة وصيانة المظلة ومخاطبة الجهات لمعالجة الشروخ.</li><li>تحسين الوجبات المدرسية (صحية) ومحاضرات عن المواطنة والانتماء.</li><li>مسابقة "مدرستي نظيفة ومتطورة" أسبوعياً.</li></ul>
+        <h5>🎯 النتائج المحققة</h5>
+        <ul><li>بيئة جاذبة وآمنة بنسبة 94% وفق استبيان الطلبة.</li><li>انخفاض الشكاوى الصحية والمرافق العامة بشكل كبير.</li><li>تعزيز ثقافة النظافة والمحافظة على الممتلكات.</li></ul>
+        <a href="https://moeom-my.sharepoint.com/:b:/g/personal/sc8909_moe_om/IQCGptFGznuCQ7n1gGt1Rbu2AdInd5ZwlUDRDFYqzM7vhNk?e=kyanm6" target="_blank" class="domain-link-btn"><i class="fas fa-tree"></i> 🏫 رابط مناخ المدرسة (التقرير)</a>
+    </div>
+
+    <!-- المجال 5: القيادة والإدارة والحوكمة -->
+    <div id="domain5" class="tab-content active-content" style="">
+        <h4 style=""><i class="fas fa-handshake"></i> مجال القيادة والإدارة والحوكمة</h4>
+        <div class="quick-summary" style=""><strong>⚙️ المقدمة:</strong> ترسيخ مبادئ الشفافية، تحديث ملف أولياء الأمور، بناء شراكات مجتمعية، تفعيل التقويم الذاتي والرقابة المالية.</div>
+        <h5>📌 المهام المنفذة</h5>
+        <ul style=""><li style="">تحديث مجلس أولياء الأمور واستكمال استمارات العضوية.</li><li>اتفاقيات شراكة مع مؤسسات مجتمعية.</li><li style="">إعداد سجل مالي موحد وربطه بخطة التحسين.</li><li style="">تفعيل اجتماعات فريق التقويم الذاتي وإعداد خطة إشرافية صفية.</li><li style="">مجتمعات تعلم مهنية داخلية والتخطيط للتبادل مع مدارس أخرى.</li><li style="">توثيق آليات المساءلة ونشر الهيكل التنظيمي.</li></ul>
+        <h5 style="">🌟 النتائج</h5>
+        <ul style=""><li style="">زيادة مشاركة أولياء الأمور بنسبة 55% في الأنشطة المدرسية.</li><li style="">اعتماد السجل المالي الموحد وتحقيق الشفافية في الإنفاق.</li><li style="">تطوير خطط الإنماء المهني بناءً على احتياجات فعلية للمعلمين.</li></ul>
+        <a href="https://moeom-my.sharepoint.com/:w:/g/personal/sc8909_moe_om/IQBr1atVUSUBSrSFMfO0O_bQAQAFdlejIrZfqzK68_cstGA?e=RGkZmo" target="_blank" class="domain-link-btn"><i class="fas fa-gear"></i> ⚙️ القيادة والحوكمة (ملف)</a>
+    </div>
+
+    <!-- معرض الصور -->
+    
+
+    <footer style="">
+        <p style="">جميع الحقوق محفوظة © مدرسة زخر للتعليم الأساسي 2025/2026 | خطة التحسين المدرسي – القيادة المدرسية: محمد حسن القرش</p>
+    </footer>
+</div>
+
+<button id="scrollTop" onclick="scrollToTop()" style="display: none;"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    // التبويبات
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.getAttribute('data-tab');
+            contents.forEach(content => content.classList.remove('active-content'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active-content');
+            btn.classList.add('active');
+        });
+    });
+
+    // معرض الصور
+    function handleFiles(files) {
+        const gallery = document.getElementById('galleryGrid');
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const div = document.createElement('div');
+                    div.className = 'gallery-item';
+                    div.innerHTML = `<img src="${e.target.result}" alt="صورة مدرسية">`;
+                    gallery.appendChild(div);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    }
+
+    window.onscroll = function() {
+        const btn = document.getElementById("scrollTop");
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    };
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body></html>
